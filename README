@@ -1,0 +1,105 @@
+NAME
+    Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
+
+VERSION
+      This document describes v0.003 of Pod::Weaver::Section::SeeAlso - released May 28, 2010 as part of Pod-Weaver-Section-SeeAlso.
+
+DESCRIPTION
+    This section plugin will produce a hunk of pod that references the main
+    module of a dist from it's submodules and adds any other text already
+    present in the pod. It will do this only if it is being built with
+    Dist::Zilla because it needs the data from the dzil object.
+
+    In the main module, this section plugin just transforms the links into a
+    proper list. In the submodules, it also adds the link to the main
+    module.
+
+    WARNING: Please do not put any other POD commands in your SEE ALSO
+    section!
+
+    What you should do when you want to add extra links is:
+
+            =head1 SEE ALSO
+            L<Foo::Bar>
+            L<Bar::Baz>
+
+    And this module will automatically convert it into:
+
+            =head1 SEE ALSO
+            =over 4
+            =item *
+            L<Main::Module>
+            =item *
+            L<Foo::Bar>
+            =item *
+            L<Bar::Baz>
+            =back
+
+SUPPORT
+    You can find documentation for this module with the perldoc command.
+
+      perldoc Pod::Weaver::Section::SeeAlso
+
+  Websites
+    *   Search CPAN
+
+        <http://search.cpan.org/dist/Pod-Weaver-Section-SeeAlso>
+
+    *   AnnoCPAN: Annotated CPAN documentation
+
+        <http://annocpan.org/dist/Pod-Weaver-Section-SeeAlso>
+
+    *   CPAN Ratings
+
+        <http://cpanratings.perl.org/d/Pod-Weaver-Section-SeeAlso>
+
+    *   CPAN Forum
+
+        <http://cpanforum.com/dist/Pod-Weaver-Section-SeeAlso>
+
+    *   RT: CPAN's Bug Tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Pod-Weaver-Section-SeeAlso
+        >
+
+    *   CPANTS Kwalitee
+
+        <http://cpants.perl.org/dist/overview/Pod-Weaver-Section-SeeAlso>
+
+    *   CPAN Testers Results
+
+        <http://cpantesters.org/distro/P/Pod-Weaver-Section-SeeAlso.html>
+
+    *   CPAN Testers Matrix
+
+        <http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-SeeAlso>
+
+    *   Source Code Repository
+
+        The code is open to the world, and available for you to hack on.
+        Please feel free to browse it and play with it, or whatever. If you
+        want to contribute patches, please send me a diff or prod me to pull
+        from your repository :)
+
+        <http://github.com/apocalypse/perl-pod-weaver-section-seealso>
+
+  Bugs
+    Please report any bugs or feature requests to
+    "bug-pod-weaver-section-seealso at rt.cpan.org", or through the web
+    interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Weaver-Section-SeeAl
+    so>. I will be notified, and then you'll automatically be notified of
+    progress on your bug as I make changes.
+
+AUTHOR
+      Apocalypse <APOCAL@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2010 by Apocalypse.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
+    The full text of the license can be found in the LICENSE file included
+    with this distribution.
+

@@ -1,0 +1,16 @@
+Revision history for Pod::Weaver::Section::SeeAlso
+
+0.003
+	Released: 2010-05-28 18:01:23 UTC
+
+	Fix how we detect existing SEE ALSO section
+
+* 0.002
+	Released: 2010-05-11 21:09:30 UTC
+
+	re-release with a fixed MANIFEST.SKIP
+
+* 0.001
+	Released: 2010-05-11 20:53:24 UTC
+
+	initial release

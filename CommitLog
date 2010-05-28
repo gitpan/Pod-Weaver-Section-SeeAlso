@@ -1,0 +1,35 @@
+==============================
+9999-99-99 99:99:99 +0000 HEAD
+==============================
+
+  commit 1e62b623808722ed544bea2d827d840e938efe6a
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Fri May 28 11:01:16 2010 -0700
+  
+    fix how we detect existing SEE ALSO section
+
+  commit 306463f7860493d1d8a6eb6d8353119b357a7863
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Sun May 16 10:05:56 2010 -0700
+  
+    minor POD tweaks
+
+  commit 8108308bbbe86cc9d573d6ab883ac9c12044425e
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Wed May 12 00:45:21 2010 -0700
+  
+    add podcoverage stuff 
+
+=======================================
+2010-05-11 14:09:35 -0700 release-0.002
+=======================================
+
+  commit e5a1e7afbe0d7beadaf67e9e586587640b113cbc
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Tue May 11 14:09:35 2010 -0700
+  
+    New CPAN release of Pod-Weaver-Section-SeeAlso - v0.002 
+
+===================================
+End of changes in the last 365 days
+===================================
