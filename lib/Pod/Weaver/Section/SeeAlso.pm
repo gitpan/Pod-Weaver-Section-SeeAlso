@@ -9,7 +9,7 @@
 use strict; use warnings;
 package Pod::Weaver::Section::SeeAlso;
 BEGIN {
-  $Pod::Weaver::Section::SeeAlso::VERSION = '0.003';
+  $Pod::Weaver::Section::SeeAlso::VERSION = '0.004';
 }
 BEGIN {
   $Pod::Weaver::Section::SeeAlso::AUTHORITY = 'cpan:APOCAL';
@@ -143,7 +143,7 @@ Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 =head1 VERSION
 
-  This document describes v0.003 of Pod::Weaver::Section::SeeAlso - released May 28, 2010 as part of Pod-Weaver-Section-SeeAlso.
+  This document describes v0.004 of Pod::Weaver::Section::SeeAlso - released May 28, 2010 as part of Pod-Weaver-Section-SeeAlso.
 
 =head1 DESCRIPTION
 
@@ -153,6 +153,8 @@ only if it is being built with L<Dist::Zilla> because it needs the data from the
 
 In the main module, this section plugin just transforms the links into a proper list. In the
 submodules, it also adds the link to the main module.
+
+For an example of what the hunk looks like, look at the L</SEE ALSO> section in this POD :)
 
 WARNING: Please do not put any other POD commands in your SEE ALSO section!
 
@@ -173,6 +175,20 @@ And this module will automatically convert it into:
 	=item *
 	L<Bar::Baz>
 	=back
+
+=head1 SEE ALSO
+
+=over 4
+
+=item *
+
+L<Pod::Weaver>
+
+=item *
+
+L<Dist::Zilla>
+
+=back
 
 =for :stopwords CPAN AnnoCPAN RT CPANTS Kwalitee diff
 

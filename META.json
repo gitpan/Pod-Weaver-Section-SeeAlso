@@ -28,7 +28,7 @@
    "provides" : {
       "Pod::Weaver::Section::SeeAlso" : {
          "file" : "lib/Pod/Weaver/Section/SeeAlso.pm",
-         "version" : "0.003"
+         "version" : "0.004"
       }
    },
    "recommends" : {},
@@ -44,7 +44,7 @@
       "license" : "http://dev.perl.org/licenses/",
       "repository" : "http://github.com/apocalypse/perl-pod-weaver-section-seealso"
    },
-   "version" : "0.003",
+   "version" : "0.004",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -223,8 +223,8 @@
             "version" : "2.101310"
          },
          {
-            "class" : "Dist::Zilla::Plugin::FakeRelease",
-            "name" : "@Apocalyptic/FakeRelease",
+            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+            "name" : "@Apocalyptic/UploadToCPAN",
             "version" : "2.101310"
          },
          {
