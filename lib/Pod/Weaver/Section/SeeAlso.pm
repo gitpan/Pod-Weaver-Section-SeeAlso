@@ -9,7 +9,7 @@
 use strict; use warnings;
 package Pod::Weaver::Section::SeeAlso;
 BEGIN {
-  $Pod::Weaver::Section::SeeAlso::VERSION = '0.004';
+  $Pod::Weaver::Section::SeeAlso::VERSION = '1.000';
 }
 BEGIN {
   $Pod::Weaver::Section::SeeAlso::AUTHORITY = 'cpan:APOCAL';
@@ -24,6 +24,7 @@ use Pod::Weaver::Role::Section 3.100710;
 with 'Pod::Weaver::Role::Section';
 
 sub weave_section {
+	## no critic ( ProhibitAccessOfPrivateData )
 	my ($self, $document, $input) = @_;
 	my $zilla = $input->{zilla} or return;
 
@@ -129,7 +130,6 @@ sub _make_item {
 1;
 
 
-
 __END__
 =pod
 
@@ -143,7 +143,7 @@ Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 =head1 VERSION
 
-  This document describes v0.004 of Pod::Weaver::Section::SeeAlso - released May 28, 2010 as part of Pod-Weaver-Section-SeeAlso.
+  This document describes v1.000 of Pod::Weaver::Section::SeeAlso - released May 30, 2010 as part of Pod-Weaver-Section-SeeAlso.
 
 =head1 DESCRIPTION
 
@@ -278,8 +278,6 @@ This software is copyright (c) 2010 by Apocalypse.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
-
-The full text of the license can be found in the F<LICENSE> file included with this distribution.
 
 =cut
 

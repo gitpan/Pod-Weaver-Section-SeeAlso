@@ -2,7 +2,7 @@ NAME
     Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 VERSION
-      This document describes v0.004 of Pod::Weaver::Section::SeeAlso - released May 28, 2010 as part of Pod-Weaver-Section-SeeAlso.
+      This document describes v1.000 of Pod::Weaver::Section::SeeAlso - released May 30, 2010 as part of Pod-Weaver-Section-SeeAlso.
 
 DESCRIPTION
     This section plugin will produce a hunk of pod that references the main
@@ -107,7 +107,4 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
-
-    The full text of the license can be found in the LICENSE file included
-    with this distribution.
 

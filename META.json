@@ -3,20 +3,12 @@
    "author" : [
       "Apocalypse <APOCAL@cpan.org>"
    ],
-   "build_requires" : {
-      "File::Find" : "0",
-      "File::Temp" : "0",
-      "Module::Build" : "0.3601",
-      "Test::More" : "0"
-   },
-   "configure_requires" : {
-      "Module::Build" : "0.3601"
-   },
-   "generated_by" : "Dist::Zilla version 2.101310",
-   "license" : "perl",
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 3.101461",
+   "license" : "perl_5",
    "meta-spec" : {
-      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html",
-      "version" : 1.4
+      "url" : "http://github.com/dagolden/cpan-meta/",
+      "version" : 2
    },
    "name" : "Pod-Weaver-Section-SeeAlso",
    "no_index" : {
@@ -25,26 +17,51 @@
          "examples"
       ]
    },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Moose" : "1.01",
+            "Moose::Autobox" : "0.10",
+            "Pod::Weaver::Role::Section" : "3.100710",
+            "perl" : "5.006"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Find" : "0",
+            "File::Temp" : "0",
+            "Test::More" : "0"
+         }
+      }
+   },
    "provides" : {
       "Pod::Weaver::Section::SeeAlso" : {
          "file" : "lib/Pod/Weaver/Section/SeeAlso.pm",
-         "version" : "0.004"
+         "version" : "1.000"
       }
    },
-   "recommends" : {},
-   "requires" : {
-      "Moose" : "1.01",
-      "Moose::Autobox" : "0.10",
-      "Pod::Weaver::Role::Section" : "3.100710",
-      "perl" : "5.006"
-   },
    "resources" : {
-      "bugtracker" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Pod-Weaver-Section-SeeAlso",
+      "bugtracker" : {
+         "mailto" : "bug-pod-weaver-section-seealso at rt.cpan.org",
+         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Pod-Weaver-Section-SeeAlso"
+      },
       "homepage" : "http://search.cpan.org/dist/Pod-Weaver-Section-SeeAlso/",
       "license" : "http://dev.perl.org/licenses/",
-      "repository" : "http://github.com/apocalypse/perl-pod-weaver-section-seealso"
+      "repository" : {
+         "url" : "http://github.com/apocalypse/perl-pod-weaver-section-seealso"
+      }
    },
-   "version" : "0.004",
+   "version" : "1.000",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -55,27 +72,27 @@
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
             "name" : "@Apocalyptic/GatherDir",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
             "name" : "@Apocalyptic/PruneCruft",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereq",
             "name" : "@Apocalyptic/AutoPrereq",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::GenerateFile",
             "name" : "@Apocalyptic/MANIFEST.SKIP",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::ManifestSkip",
             "name" : "@Apocalyptic/ManifestSkip",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::CompileTests",
@@ -86,6 +103,11 @@
             "class" : "Dist::Zilla::Plugin::ApocalypseTests",
             "name" : "@Apocalyptic/ApocalypseTests",
             "version" : "0.01"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
+            "name" : "@Apocalyptic/ReportVersions::Tiny",
+            "version" : "1.00"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prepender",
@@ -100,7 +122,7 @@
          {
             "class" : "Dist::Zilla::Plugin::PkgVersion",
             "name" : "@Apocalyptic/PkgVersion",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodWeaver",
@@ -110,7 +132,7 @@
          {
             "class" : "Dist::Zilla::Plugin::NextRelease",
             "name" : "@Apocalyptic/NextRelease",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::ChangelogFromGit",
@@ -140,17 +162,17 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@Apocalyptic/MetaConfig",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::Repository",
             "name" : "@Apocalyptic/Repository",
-            "version" : "0.11"
+            "version" : "0.13"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaResources",
             "name" : "@Apocalyptic/MetaResources",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaNoIndex",
@@ -160,32 +182,32 @@
          {
             "class" : "Dist::Zilla::Plugin::License",
             "name" : "@Apocalyptic/License",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::MakeMaker",
             "name" : "@Apocalyptic/MakeMaker",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::ModuleBuild",
             "name" : "@Apocalyptic/ModuleBuild",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::DualBuilders",
             "name" : "@Apocalyptic/DualBuilders",
-            "version" : "0.02"
+            "version" : "0.03"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaYAML",
             "name" : "@Apocalyptic/MetaYAML",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
             "name" : "@Apocalyptic/MetaJSON",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReadmeFromPod",
@@ -205,7 +227,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Manifest",
             "name" : "@Apocalyptic/Manifest",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::CheckChangesHasContent",
@@ -220,12 +242,12 @@
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@Apocalyptic/ConfirmRelease",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@Apocalyptic/UploadToCPAN",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::ArchiveRelease",
@@ -250,22 +272,22 @@
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":InstallModules",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":TestFiles",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ExecFiles",
-            "version" : "2.101310"
+            "version" : "3.101461"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ShareFiles",
-            "version" : "2.101310"
+            "version" : "3.101461"
          }
       ],
       "zilla" : {
@@ -273,7 +295,7 @@
          "config" : {
             "is_trial" : 0
          },
-         "version" : "2.101310"
+         "version" : "3.101461"
       }
    },
    "x_authority" : "cpan:APOCAL"

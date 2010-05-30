@@ -29,7 +29,7 @@ my %WriteMakefileArgs = (
     'Moose::Autobox' => '0.10',
     'Pod::Weaver::Role::Section' => '3.100710'
   },
-  'VERSION' => '0.004',
+  'VERSION' => '1.000',
   'test' => {
     'TESTS' => 't/*.t'
   }

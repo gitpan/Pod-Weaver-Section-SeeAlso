@@ -2,6 +2,34 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit 24977e81b9f64dcaf374cbd85ce9bb68eb09bc18
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Sun May 30 11:05:40 2010 -0700
+  
+    fix gitignore again
+
+  commit 1d98410b34297ad2aa59cc3c4f5675afd0c06d14
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Sun May 30 10:57:00 2010 -0700
+  
+    fix gitignore problem
+
+  commit 64ad67a3d78b51b2b83fc88a60c5a1103d8a873f
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Fri May 28 13:18:56 2010 -0700
+  
+    add perlcritic line 
+
+=======================================
+2010-05-28 13:09:59 -0700 release-0.004
+=======================================
+
+  commit 192b403090e4f83604b554e382d91e2ffcd4c631
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Fri May 28 13:09:59 2010 -0700
+  
+    New CPAN release of Pod-Weaver-Section-SeeAlso - v0.004
+
   commit a3896b90d8a6ddb20f43a9699025397a8378f8d3
   Author: Apocalypse <perl@0ne.us>
   Date:   Fri May 28 13:07:24 2010 -0700
