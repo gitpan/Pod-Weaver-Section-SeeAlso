@@ -2,7 +2,7 @@ NAME
     Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 VERSION
-      This document describes v1.000 of Pod::Weaver::Section::SeeAlso - released May 30, 2010 as part of Pod-Weaver-Section-SeeAlso.
+      This document describes v1.001 of Pod::Weaver::Section::SeeAlso - released December 13, 2010 as part of Pod-Weaver-Section-SeeAlso.
 
 DESCRIPTION
     This section plugin will produce a hunk of pod that references the main
@@ -17,14 +17,14 @@ DESCRIPTION
     For an example of what the hunk looks like, look at the "SEE ALSO"
     section in this POD :)
 
-    WARNING: Please do not put any other POD commands in your SEE ALSO
-    section!
+    WARNING: Please do not put any POD commands in your SEE ALSO section!
 
     What you should do when you want to add extra links is:
 
             =head1 SEE ALSO
-            L<Foo::Bar>
-            L<Bar::Baz>
+            Foo::Bar
+            Bar::Baz
+            www.cpan.org
 
     And this module will automatically convert it into:
 
@@ -36,9 +36,47 @@ DESCRIPTION
             L<Foo::Bar>
             =item *
             L<Bar::Baz>
+            =item *
+            L<www.cpan.org>
             =back
 
+    You can specify more links by using the "links" attribute or by
+    specifying it as a comment. The format of the comment is:
+
+            # SEEALSO: Foo::Bar, Module::Nice::Foo, www.foo.com
+
+    At this time you can only use one comment line. If you need to do it
+    multiple times, please prod me to update the module or give me a patch
+    :)
+
+    The way the links are ordered is: POD in the module, links attribute,
+    comment links.
+
+ATTRIBUTES
+  add_main_link
+    A boolean value controlling whether the link back to the main module
+    should be added in the submodules.
+
+    Defaults to true.
+
+  header
+    Specify the content to be displayed before the list of links is shown.
+
+    The default is a sufficient explanation (see "SEE ALSO").
+
+  links
+    Specify a list of links you want to add to the SEE ALSO section.
+
+    You can either specify it like this: "Foo::Bar" or do it in POD format:
+    "Foo::Bar". This module will automatically add the proper POD formatting
+    if it is missing.
+
+    The default is an empty list.
+
 SEE ALSO
+    Please see those modules/websites for more information related to this
+    module.
+
     *   Pod::Weaver
 
     *   Dist::Zilla
@@ -49,9 +87,18 @@ SUPPORT
       perldoc Pod::Weaver::Section::SeeAlso
 
   Websites
+    The following websites have more information about this module, and may
+    be of help to you. As always, in addition to those websites please use
+    your favorite search engine to discover more resources.
+
     *   Search CPAN
 
         <http://search.cpan.org/dist/Pod-Weaver-Section-SeeAlso>
+
+    *   RT: CPAN's Bug Tracker
+
+        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Pod-Weaver-Section-SeeAlso
+        >
 
     *   AnnoCPAN: Annotated CPAN documentation
 
@@ -65,11 +112,6 @@ SUPPORT
 
         <http://cpanforum.com/dist/Pod-Weaver-Section-SeeAlso>
 
-    *   RT: CPAN's Bug Tracker
-
-        <http://rt.cpan.org/NoAuth/Bugs.html?Dist=Pod-Weaver-Section-SeeAlso
-        >
-
     *   CPANTS Kwalitee
 
         <http://cpants.perl.org/dist/overview/Pod-Weaver-Section-SeeAlso>
@@ -82,29 +124,55 @@ SUPPORT
 
         <http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-SeeAlso>
 
-    *   Source Code Repository
+  Internet Relay Chat
+    You can get live help by using IRC ( Internet Relay Chat ). If you don't
+    know what IRC is, please read this excellent guide:
+    <http://en.wikipedia.org/wiki/Internet_Relay_Chat>. Please be courteous
+    and patient when talking to us, as we might be busy or sleeping! You can
+    join those networks/channels and get help:
 
-        The code is open to the world, and available for you to hack on.
-        Please feel free to browse it and play with it, or whatever. If you
-        want to contribute patches, please send me a diff or prod me to pull
-        from your repository :)
+    *   irc.perl.org
 
-        <http://github.com/apocalypse/perl-pod-weaver-section-seealso>
+        You can connect to the server at 'irc.perl.org' and join this
+        channel: #perl-help then talk to this person for help: Apocalypse.
 
-  Bugs
-    Please report any bugs or feature requests to
+    *   irc.freenode.net
+
+        You can connect to the server at 'irc.freenode.net' and join this
+        channel: #perl then talk to this person for help: Apocal.
+
+    *   irc.efnet.org
+
+        You can connect to the server at 'irc.efnet.org' and join this
+        channel: #perl then talk to this person for help: Ap0cal.
+
+  Bugs / Feature Requests
+    Please report any bugs or feature requests by email to
     "bug-pod-weaver-section-seealso at rt.cpan.org", or through the web
     interface at
     <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Weaver-Section-SeeAl
     so>. I will be notified, and then you'll automatically be notified of
     progress on your bug as I make changes.
 
+  Source Code
+    The code is open to the world, and available for you to hack on. Please
+    feel free to browse it and play with it, or whatever. If you want to
+    contribute patches, please send me a diff or prod me to pull from your
+    repository :)
+
+    <http://github.com/apocalypse/perl-pod-weaver-section-seealso>
+
+      git clone git://github.com/apocalypse/perl-pod-weaver-section-seealso.git
+
 AUTHOR
-      Apocalypse <APOCAL@cpan.org>
+    Apocalypse <APOCAL@cpan.org>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by Apocalypse.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
+
+    The full text of the license can be found in the LICENSE file included
+    with this distribution.
 

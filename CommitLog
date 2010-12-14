@@ -2,6 +2,36 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit bfc06c83ac86993f6e91f8505e08af04976b06c2
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Mon Dec 13 20:06:43 2010 -0700
+  
+    add whole host of features and updates
+
+  commit b561a04c02fd670c0ebb61139ec8569cd201a562
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Sat Dec 4 16:36:01 2010 -0700
+  
+    minor tweaks
+
+  commit 7f5c8b91333ebcee37e5f5f3d7280615adcaff42
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Sun May 30 11:06:30 2010 -0700
+  
+    add release tarball 
+
+=======================================
+2010-05-30 11:06:06 -0700 release-1.000
+=======================================
+
+  commit c73d5f28f0a9bbb7644add4be8b532ae303c8f36
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Sun May 30 11:06:06 2010 -0700
+  
+    New CPAN release of Pod-Weaver-Section-SeeAlso - v1.000
+
+    Released: 2010-05-30 18:05:59 UTC
+
   commit 24977e81b9f64dcaf374cbd85ce9bb68eb09bc18
   Author: Apocalypse <perl@0ne.us>
   Date:   Sun May 30 11:05:40 2010 -0700
