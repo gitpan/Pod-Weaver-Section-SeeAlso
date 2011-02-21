@@ -2,6 +2,47 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit 0ddc69c6ca677ffc3bd3616a3a92dc8556cdafb7
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Mon Feb 21 14:47:33 2011 -0700
+  
+    add a note about the recent patch
+
+  commit 179c67c330fed10665c08988fa0ae591448bad92
+  Author: Adam Lesperance <lespea@gmail.com>
+  Date:   Thu Feb 17 21:52:13 2011 -0600
+  
+    Include link text to comply with Perl::Critic
+
+    According to Documentation::RequirePodLinksIncludeText, all POD links
+    must include the link text since POD translators are inconsistent.
+    This change forces the pod modules to just use their name as the
+    text, since that is most likely the desired value in a SeeAlso
+    section. 
+
+=======================================
+2010-12-13 20:07:17 -0700 release-1.001
+=======================================
+
+  commit b951d55a6ebdb6ba39bb5cf040edc3d535b73cc6
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Mon Dec 13 20:07:17 2010 -0700
+  
+    New CPAN release of Pod-Weaver-Section-SeeAlso - v1.001
+
+    Released: 2010-12-14 03:06:57 UTC
+
+    Release with updated Dist::Zilla
+
+    Add attribute to control the link back to the main module
+
+    Add attribute to specify extra links ( thanks GETTY! )
+
+    Add the ability to specify extra links as a comment in the file (
+    thanks GETTY! )
+
+    Add attribute to specify the introduction text
+
   commit bfc06c83ac86993f6e91f8505e08af04976b06c2
   Author: Apocalypse <perl@0ne.us>
   Date:   Mon Dec 13 20:06:43 2010 -0700

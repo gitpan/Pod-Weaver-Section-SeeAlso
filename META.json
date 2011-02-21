@@ -49,7 +49,7 @@
    "provides" : {
       "Pod::Weaver::Section::SeeAlso" : {
          "file" : "lib/Pod/Weaver/Section/SeeAlso.pm",
-         "version" : "1.001"
+         "version" : "1.002"
       }
    },
    "release_status" : "stable",
@@ -68,7 +68,7 @@
          "web" : "http://github.com/apocalypse/perl-pod-weaver-section-seealso"
       }
    },
-   "version" : "1.001",
+   "version" : "1.002",
    "x_BuiltWith" : {
       "modules" : {
          "File::Find" : "1.12",
@@ -97,7 +97,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "name" : "@Apocalyptic/Git::NextVersion",
-            "version" : "1.103470"
+            "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
@@ -130,11 +130,6 @@
             "version" : "1.103030"
          },
          {
-            "class" : "Dist::Zilla::Plugin::ApocalypseTests",
-            "name" : "@Apocalyptic/ApocalypseTests",
-            "version" : "0.01"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
             "name" : "@Apocalyptic/ReportVersions::Tiny",
             "version" : "1.02"
@@ -147,7 +142,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Authority",
             "name" : "@Apocalyptic/Authority",
-            "version" : "1.001"
+            "version" : "1.003"
          },
          {
             "class" : "Dist::Zilla::Plugin::PkgVersion",
@@ -246,7 +241,7 @@
          {
             "class" : "Dist::Zilla::Plugin::DualBuilders",
             "name" : "@Apocalyptic/DualBuilders",
-            "version" : "0.03"
+            "version" : "1.001"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaYAML",
@@ -286,7 +281,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "@Apocalyptic/Git::Check",
-            "version" : "1.103470"
+            "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
@@ -294,8 +289,8 @@
             "version" : "4.102345"
          },
          {
-            "class" : "Dist::Zilla::Plugin::FakeRelease",
-            "name" : "@Apocalyptic/FakeRelease",
+            "class" : "Dist::Zilla::Plugin::UploadToCPAN",
+            "name" : "@Apocalyptic/UploadToCPAN",
             "version" : "4.102345"
          },
          {
@@ -306,17 +301,17 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
             "name" : "@Apocalyptic/Git::Commit",
-            "version" : "1.103470"
+            "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Apocalyptic/Git::Tag",
-            "version" : "1.103470"
+            "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Push",
             "name" : "@Apocalyptic/Git::Push",
-            "version" : "1.103470"
+            "version" : "1.110500"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",

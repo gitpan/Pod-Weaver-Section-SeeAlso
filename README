@@ -2,7 +2,7 @@ NAME
     Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 VERSION
-      This document describes v1.001 of Pod::Weaver::Section::SeeAlso - released December 13, 2010 as part of Pod-Weaver-Section-SeeAlso.
+      This document describes v1.002 of Pod::Weaver::Section::SeeAlso - released February 21, 2011 as part of Pod-Weaver-Section-SeeAlso.
 
 DESCRIPTION
     This section plugin will produce a hunk of pod that references the main
@@ -82,6 +82,7 @@ SEE ALSO
     *   Dist::Zilla
 
 SUPPORT
+  Perldoc
     You can find documentation for this module with the perldoc command.
 
       perldoc Pod::Weaver::Section::SeeAlso
@@ -124,6 +125,10 @@ SUPPORT
 
         <http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-SeeAlso>
 
+  Email
+    You can email the author of this module at "APOCAL at cpan.org" asking
+    for help with any problems you have.
+
   Internet Relay Chat
     You can get live help by using IRC ( Internet Relay Chat ). If you don't
     know what IRC is, please read this excellent guide:
@@ -151,8 +156,8 @@ SUPPORT
     "bug-pod-weaver-section-seealso at rt.cpan.org", or through the web
     interface at
     <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Weaver-Section-SeeAl
-    so>. I will be notified, and then you'll automatically be notified of
-    progress on your bug as I make changes.
+    so>. You will be automatically notified of any progress on the request
+    by the system.
 
   Source Code
     The code is open to the world, and available for you to hack on. Please
@@ -168,7 +173,7 @@ AUTHOR
     Apocalypse <APOCAL@cpan.org>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2010 by Apocalypse.
+    This software is copyright (c) 2011 by Apocalypse.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

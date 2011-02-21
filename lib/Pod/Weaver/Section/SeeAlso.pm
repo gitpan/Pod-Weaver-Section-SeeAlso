@@ -1,7 +1,7 @@
 #
 # This file is part of Pod-Weaver-Section-SeeAlso
 #
-# This software is copyright (c) 2010 by Apocalypse.
+# This software is copyright (c) 2011 by Apocalypse.
 #
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
@@ -9,7 +9,7 @@
 use strict; use warnings;
 package Pod::Weaver::Section::SeeAlso;
 BEGIN {
-  $Pod::Weaver::Section::SeeAlso::VERSION = '1.001';
+  $Pod::Weaver::Section::SeeAlso::VERSION = '1.002';
 }
 BEGIN {
   $Pod::Weaver::Section::SeeAlso::AUTHORITY = 'cpan:APOCAL';
@@ -52,25 +52,25 @@ sub weave_section {
 	## no critic ( ProhibitAccessOfPrivateData )
 	my ($self, $document, $input) = @_;
 
-	my $zilla = $input->{zilla} or die 'Please use Dist::Zilla with this module!';
+	my $zilla = $input->{'zilla'} or die 'Please use Dist::Zilla with this module!';
 
 	# find the main module's name
 	my $main = $zilla->main_module->name;
-	my $is_main = $main eq $input->{filename} ? 1 : 0;
+	my $is_main = $main eq $input->{'filename'} ? 1 : 0;
 	$main =~ s|^lib/||;
 	$main =~ s/\.pm$//;
 	$main =~ s|/|::|g;
 
 	# Is the SEE ALSO section already in the POD?
 	my $see_also;
-	foreach my $i ( 0 .. $#{ $input->{pod_document}->children } ) {
-		my $para = $input->{pod_document}->children->[$i];
+	foreach my $i ( 0 .. $#{ $input->{'pod_document'}->children } ) {
+		my $para = $input->{'pod_document'}->children->[$i];
 		next unless $para->isa('Pod::Elemental::Element::Nested')
 			and $para->command eq 'head1'
 			and $para->content =~ /^SEE\s+ALSO/s;	# catches both "head1 SEE ALSO\n\nL<baz>" and "head1 SEE ALSO\nL<baz>" format
 
 		$see_also = $para;
-		splice( @{ $input->{pod_document}->children }, $i, 1 );
+		splice( @{ $input->{'pod_document'}->children }, $i, 1 );
 		last;
 	}
 
@@ -105,7 +105,7 @@ sub weave_section {
 	# Add links specified in the document
 	# Code copied from Pod::Weaver::Section::Name, thanks RJBS!
 	# TODO how do we pick up multiple times?
-	my ($extralinks) = $input->{ppi_document}->serialize =~ /^\s*#+\s*SEEALSO:\s*(.+)$/m;
+	my ($extralinks) = $input->{'ppi_document'}->serialize =~ /^\s*#+\s*SEEALSO:\s*(.+)$/m;
 	if ( defined $extralinks and length $extralinks ) {
 		# get the list!
 		my @data = split( /\,/, $extralinks );
@@ -149,7 +149,8 @@ sub _make_item {
 
 	# Is it proper POD?
 	if ( $link !~ /^L\<.+\>$/ ) {
-		$link = 'L<' . $link . '>';
+		# include the link text so we satisfy Perl::Critic::Policy::Documentation::RequirePodLinksIncludeText
+		$link = 'L<' . $link . '|' . $link . '>';
 	}
 
 	return Pod::Elemental::Element::Nested->new( {
@@ -179,7 +180,7 @@ Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 =head1 VERSION
 
-  This document describes v1.001 of Pod::Weaver::Section::SeeAlso - released December 13, 2010 as part of Pod-Weaver-Section-SeeAlso.
+  This document describes v1.002 of Pod::Weaver::Section::SeeAlso - released February 21, 2011 as part of Pod-Weaver-Section-SeeAlso.
 
 =head1 DESCRIPTION
 
@@ -265,9 +266,11 @@ L<Dist::Zilla>
 
 =back
 
-=for :stopwords CPAN AnnoCPAN RT CPANTS Kwalitee diff IRC
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
 
 =head1 SUPPORT
+
+=head2 Perldoc
 
 You can find documentation for this module with the perldoc command.
 
@@ -330,6 +333,10 @@ L<http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-SeeAlso>
 
 =back
 
+=head2 Email
+
+You can email the author of this module at C<APOCAL at cpan.org> asking for help with any problems you have.
+
 =head2 Internet Relay Chat
 
 You can get live help by using IRC ( Internet Relay Chat ). If you don't know what IRC is,
@@ -362,8 +369,8 @@ You can connect to the server at 'irc.efnet.org' and join this channel: #perl th
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests by email to C<bug-pod-weaver-section-seealso at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Weaver-Section-SeeAlso>.  I will be
-notified, and then you'll automatically be notified of progress on your bug as I make changes.
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Pod-Weaver-Section-SeeAlso>. You will be automatically notified of any
+progress on the request by the system.
 
 =head2 Source Code
 
@@ -381,7 +388,7 @@ Apocalypse <APOCAL@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Apocalypse.
+This software is copyright (c) 2011 by Apocalypse.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
