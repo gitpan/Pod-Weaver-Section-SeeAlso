@@ -1,150 +1,76 @@
-==============================
-9999-99-99 99:99:99 +0000 HEAD
-==============================
+==================================================
+Changes from 2013-10-25 00:00:00 +0000 to present.
+==================================================
 
-  commit 0ddc69c6ca677ffc3bd3616a3a92dc8556cdafb7
+------------------------------------------
+version 1.003 at 2014-10-25 22:12:43 +0000
+------------------------------------------
+
+  Change: 1fda35c9e8833ab79e113fce0d7f1fd8f6587f79
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 15:11:49 +0000
+
+    Merge branch 'master' of
+    github.com:apocalypse/perl-pod-weaver-section-seealso 
+
+  Change: 179f307e24514d9988c0a3d10d8fca4dddb0ff83
+  Author: Apocalypse <apocalypse@users.noreply.github.com>
+  Date : 2014-10-25 15:11:07 +0000
+
+    Merge pull request #2 from shlomif/master
+
+    Correct some typos. 
+
+  Change: dbcf1f298ba46aa67d82e2593141b9602695dcb1
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 15:09:07 +0000
+
+    add manual perlcriticrc file because of damned
+    [Documentation::ProhibitVerbatimMarkup] 
+
+  Change: 16a7eeb6d79fc2391285009b50ab4faedaf854ee
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 14:40:26 +0000
+
+    rename example link to a real module on CPAN so we don't fail
+    LinkCheck :( 
+
+  Change: f82c9ed54faeda05a3ef34b599e902f8586d4844
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 14:30:18 +0000
+
+    update gitignore 
+
+  Change: d4fd58c64e9f1fd27a3b69f007cbd69b49533e82
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 14:29:57 +0000
+
+    update Changes to new format 
+
+  Change: 21c9986fdc278a3486f1a6cb94be9b404a0d4428
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 14:28:22 +0000
+
+    add mailmap 
+
+  Change: d5e137c4b290079ebfa7dcddd80a169644b0a830
+  Author: Apocalypse <APOCAL@cpan.org>
+  Date : 2014-10-25 14:28:06 +0000
+
+    add support for multiple #SEEALSO lines 
+
+  Change: 56c4ed7b0c7263a6003b803303b862834e3b4444
+  Author: Shlomi Fish <shlomif@shlomifish.org>
+  Date : 2012-12-22 13:11:57 +0000
+
+    Correct some typos. 
+
+  Change: d88abc4e193ffbd2639bb1eb2cf729c3a0bf9e16
   Author: Apocalypse <perl@0ne.us>
-  Date:   Mon Feb 21 14:47:33 2011 -0700
-  
-    add a note about the recent patch
+  Date : 2011-02-21 21:15:52 +0000
 
-  commit 179c67c330fed10665c08988fa0ae591448bad92
-  Author: Adam Lesperance <lespea@gmail.com>
-  Date:   Thu Feb 17 21:52:13 2011 -0600
-  
-    Include link text to comply with Perl::Critic
+    add note about multiple SEEALSO lines in pod 
 
-    According to Documentation::RequirePodLinksIncludeText, all POD links
-    must include the link text since POD translators are inconsistent.
-    This change forces the pod modules to just use their name as the
-    text, since that is most likely the desired value in a SeeAlso
-    section. 
-
-=======================================
-2010-12-13 20:07:17 -0700 release-1.001
-=======================================
-
-  commit b951d55a6ebdb6ba39bb5cf040edc3d535b73cc6
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Mon Dec 13 20:07:17 2010 -0700
-  
-    New CPAN release of Pod-Weaver-Section-SeeAlso - v1.001
-
-    Released: 2010-12-14 03:06:57 UTC
-
-    Release with updated Dist::Zilla
-
-    Add attribute to control the link back to the main module
-
-    Add attribute to specify extra links ( thanks GETTY! )
-
-    Add the ability to specify extra links as a comment in the file (
-    thanks GETTY! )
-
-    Add attribute to specify the introduction text
-
-  commit bfc06c83ac86993f6e91f8505e08af04976b06c2
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Mon Dec 13 20:06:43 2010 -0700
-  
-    add whole host of features and updates
-
-  commit b561a04c02fd670c0ebb61139ec8569cd201a562
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Sat Dec 4 16:36:01 2010 -0700
-  
-    minor tweaks
-
-  commit 7f5c8b91333ebcee37e5f5f3d7280615adcaff42
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Sun May 30 11:06:30 2010 -0700
-  
-    add release tarball 
-
-=======================================
-2010-05-30 11:06:06 -0700 release-1.000
-=======================================
-
-  commit c73d5f28f0a9bbb7644add4be8b532ae303c8f36
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Sun May 30 11:06:06 2010 -0700
-  
-    New CPAN release of Pod-Weaver-Section-SeeAlso - v1.000
-
-    Released: 2010-05-30 18:05:59 UTC
-
-  commit 24977e81b9f64dcaf374cbd85ce9bb68eb09bc18
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Sun May 30 11:05:40 2010 -0700
-  
-    fix gitignore again
-
-  commit 1d98410b34297ad2aa59cc3c4f5675afd0c06d14
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Sun May 30 10:57:00 2010 -0700
-  
-    fix gitignore problem
-
-  commit 64ad67a3d78b51b2b83fc88a60c5a1103d8a873f
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Fri May 28 13:18:56 2010 -0700
-  
-    add perlcritic line 
-
-=======================================
-2010-05-28 13:09:59 -0700 release-0.004
-=======================================
-
-  commit 192b403090e4f83604b554e382d91e2ffcd4c631
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Fri May 28 13:09:59 2010 -0700
-  
-    New CPAN release of Pod-Weaver-Section-SeeAlso - v0.004
-
-  commit a3896b90d8a6ddb20f43a9699025397a8378f8d3
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Fri May 28 13:07:24 2010 -0700
-  
-    add example hunk 
-
-=======================================
-2010-05-28 11:01:29 -0700 release-0.003
-=======================================
-
-  commit 9c1511cd3acdac0d7af6430a7e0826757223b0ef
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Fri May 28 11:01:29 2010 -0700
-  
-    New CPAN release of Pod-Weaver-Section-SeeAlso - v0.003
-
-  commit 1e62b623808722ed544bea2d827d840e938efe6a
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Fri May 28 11:01:16 2010 -0700
-  
-    fix how we detect existing SEE ALSO section
-
-  commit 306463f7860493d1d8a6eb6d8353119b357a7863
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Sun May 16 10:05:56 2010 -0700
-  
-    minor POD tweaks
-
-  commit 8108308bbbe86cc9d573d6ab883ac9c12044425e
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Wed May 12 00:45:21 2010 -0700
-  
-    add podcoverage stuff 
-
-=======================================
-2010-05-11 14:09:35 -0700 release-0.002
-=======================================
-
-  commit e5a1e7afbe0d7beadaf67e9e586587640b113cbc
-  Author: Apocalypse <perl@0ne.us>
-  Date:   Tue May 11 14:09:35 2010 -0700
-  
-    New CPAN release of Pod-Weaver-Section-SeeAlso - v0.002 
-
-===================================
-End of changes in the last 365 days
-===================================
+================================================
+Plus 7 releases after 2013-10-25 00:00:00 +0000.
+================================================

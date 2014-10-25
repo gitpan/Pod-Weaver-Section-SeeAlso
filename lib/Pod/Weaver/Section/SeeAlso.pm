@@ -1,16 +1,15 @@
 #
 # This file is part of Pod-Weaver-Section-SeeAlso
 #
-# This software is copyright (c) 2011 by Apocalypse.
+# This software is copyright (c) 2014 by Apocalypse.
 #
 # This is free software; you can redistribute it and/or modify it under
 # the same terms as the Perl 5 programming language system itself.
 #
 use strict; use warnings;
 package Pod::Weaver::Section::SeeAlso;
-BEGIN {
-  $Pod::Weaver::Section::SeeAlso::VERSION = '1.002';
-}
+# git description: release-1.002-10-g1fda35c
+$Pod::Weaver::Section::SeeAlso::VERSION = '1.003';
 BEGIN {
   $Pod::Weaver::Section::SeeAlso::AUTHORITY = 'cpan:APOCAL';
 }
@@ -24,6 +23,14 @@ with 'Pod::Weaver::Role::Section' => { -version => '3.100710' };
 
 sub mvp_multivalue_args { qw( links ) }
 
+#pod =attr add_main_link
+#pod
+#pod A boolean value controlling whether the link back to the main module should be
+#pod added in the submodules.
+#pod
+#pod Defaults to true.
+#pod
+#pod =cut
 
 has add_main_link => (
 	is => 'ro',
@@ -31,6 +38,13 @@ has add_main_link => (
 	default => 1,
 );
 
+#pod =attr header
+#pod
+#pod Specify the content to be displayed before the list of links is shown.
+#pod
+#pod The default is a sufficient explanation (see L</SEE ALSO>).
+#pod
+#pod =cut
 
 has header => (
 	is => 'ro',
@@ -41,6 +55,16 @@ EOPOD
 
 );
 
+#pod =attr links
+#pod
+#pod Specify a list of links you want to add to the SEE ALSO section.
+#pod
+#pod You can either specify it like this: "Moose" or do it in POD format: "L<Moose>". This
+#pod module will automatically add the proper POD formatting if it is missing.
+#pod
+#pod The default is an empty list.
+#pod
+#pod =cut
 
 has links => (
 	is => 'ro',
@@ -104,11 +128,10 @@ sub weave_section {
 
 	# Add links specified in the document
 	# Code copied from Pod::Weaver::Section::Name, thanks RJBS!
-	# TODO how do we pick up multiple times?
-	my ($extralinks) = $input->{'ppi_document'}->serialize =~ /^\s*#+\s*SEEALSO:\s*(.+)$/m;
-	if ( defined $extralinks and length $extralinks ) {
+	my (@extra) = ($input->{'ppi_document'}->serialize =~ /^\s*#+\s*SEE\s*ALSO\s*:\s*(.+)$/mg);
+	foreach my $l ( @extra ) {
 		# get the list!
-		my @data = split( /\,/, $extralinks );
+		my @data = split( /\,/, $l );
 		$_ =~ s/^\s+//g for @data;
 		$_ =~ s/\s+$//g for @data;
 		push( @links, $_ ) for @data;
@@ -166,13 +189,17 @@ sub _make_item {
 
 1;
 
-
 __END__
+
 =pod
 
-=for Pod::Coverage weave_section mvp_multivalue_args
+=encoding UTF-8
 
-=for stopwords dist dzil
+=for :stopwords Apocalypse Adam Fish Lesperance Shlomi cpan testmatrix url annocpan anno
+bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
+metacpan dist dzil
+
+=for Pod::Coverage weave_section mvp_multivalue_args
 
 =head1 NAME
 
@@ -180,13 +207,13 @@ Pod::Weaver::Section::SeeAlso - add a SEE ALSO pod section
 
 =head1 VERSION
 
-  This document describes v1.002 of Pod::Weaver::Section::SeeAlso - released February 21, 2011 as part of Pod-Weaver-Section-SeeAlso.
+  This document describes v1.003 of Pod::Weaver::Section::SeeAlso - released October 25, 2014 as part of Pod-Weaver-Section-SeeAlso.
 
 =head1 DESCRIPTION
 
 This section plugin will produce a hunk of pod that references the main module of a dist
-from it's submodules and adds any other text already present in the pod. It will do this
-only if it is being built with L<Dist::Zilla> because it needs the data from the dzil object.
+from its submodules, and adds any other text already present in the POD. It will do this
+only if it is being built with L<Dist::Zilla>, because it needs the data from the dzil object.
 
 In the main module, this section plugin just transforms the links into a proper list. In the
 submodules, it also adds the link to the main module.
@@ -216,13 +243,10 @@ And this module will automatically convert it into:
 	L<www.cpan.org>
 	=back
 
-You can specify more links by using the "links" attribute or by specifying it as a comment. The
+You can specify more links by using the "links" attribute, or by specifying it as a comment. The
 format of the comment is:
 
 	# SEEALSO: Foo::Bar, Module::Nice::Foo, www.foo.com
-
-At this time you can only use one comment line. If you need to do it multiple times, please prod me
-to update the module or give me a patch :)
 
 The way the links are ordered is: POD in the module, links attribute, comment links.
 
@@ -245,7 +269,7 @@ The default is a sufficient explanation (see L</SEE ALSO>).
 
 Specify a list of links you want to add to the SEE ALSO section.
 
-You can either specify it like this: "Foo::Bar" or do it in POD format: "L<Foo::Bar>". This
+You can either specify it like this: "Moose" or do it in POD format: "L<Moose>". This
 module will automatically add the proper POD formatting if it is missing.
 
 The default is an empty list.
@@ -258,15 +282,13 @@ Please see those modules/websites for more information related to this module.
 
 =item *
 
-L<Pod::Weaver>
+L<Pod::Weaver|Pod::Weaver>
 
 =item *
 
-L<Dist::Zilla>
+L<Dist::Zilla|Dist::Zilla>
 
 =back
-
-=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
 
 =head1 SUPPORT
 
@@ -285,7 +307,17 @@ in addition to those websites please use your favorite search engine to discover
 
 =item *
 
+MetaCPAN
+
+A modern, open-source CPAN search engine, useful to view POD in HTML format.
+
+L<http://metacpan.org/release/Pod-Weaver-Section-SeeAlso>
+
+=item *
+
 Search CPAN
+
+The default CPAN search engine, useful to view POD in HTML format.
 
 L<http://search.cpan.org/dist/Pod-Weaver-Section-SeeAlso>
 
@@ -293,11 +325,15 @@ L<http://search.cpan.org/dist/Pod-Weaver-Section-SeeAlso>
 
 RT: CPAN's Bug Tracker
 
+The RT ( Request Tracker ) website is the default bug/issue tracking system for CPAN.
+
 L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Pod-Weaver-Section-SeeAlso>
 
 =item *
 
-AnnoCPAN: Annotated CPAN documentation
+AnnoCPAN
+
+The AnnoCPAN is a website that allows community annotations of Perl module documentation.
 
 L<http://annocpan.org/dist/Pod-Weaver-Section-SeeAlso>
 
@@ -305,31 +341,49 @@ L<http://annocpan.org/dist/Pod-Weaver-Section-SeeAlso>
 
 CPAN Ratings
 
+The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
+
 L<http://cpanratings.perl.org/d/Pod-Weaver-Section-SeeAlso>
 
 =item *
 
 CPAN Forum
 
+The CPAN Forum is a web forum for discussing Perl modules.
+
 L<http://cpanforum.com/dist/Pod-Weaver-Section-SeeAlso>
 
 =item *
 
-CPANTS Kwalitee
+CPANTS
+
+The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
 
 L<http://cpants.perl.org/dist/overview/Pod-Weaver-Section-SeeAlso>
 
 =item *
 
-CPAN Testers Results
+CPAN Testers
 
-L<http://cpantesters.org/distro/P/Pod-Weaver-Section-SeeAlso.html>
+The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
+
+L<http://www.cpantesters.org/distro/P/Pod-Weaver-Section-SeeAlso>
 
 =item *
 
 CPAN Testers Matrix
 
+The CPAN Testers Matrix is a website that provides a visual overview of the test results for a distribution on various Perls/platforms.
+
 L<http://matrix.cpantesters.org/?dist=Pod-Weaver-Section-SeeAlso>
+
+=item *
+
+CPAN Testers Dependencies
+
+The CPAN Testers Dependencies is a website that shows a chart of the test results of all dependencies for a distribution.
+
+L<http://deps.cpantesters.org/?module=Pod::Weaver::Section::SeeAlso>
 
 =back
 
@@ -378,7 +432,7 @@ The code is open to the world, and available for you to hack on. Please feel fre
 with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
 from your repository :)
 
-L<http://github.com/apocalypse/perl-pod-weaver-section-seealso>
+L<https://github.com/apocalypse/perl-pod-weaver-section-seealso>
 
   git clone git://github.com/apocalypse/perl-pod-weaver-section-seealso.git
 
@@ -386,14 +440,51 @@ L<http://github.com/apocalypse/perl-pod-weaver-section-seealso>
 
 Apocalypse <APOCAL@cpan.org>
 
+=head2 CONTRIBUTORS
+
+=for stopwords Adam Lesperance Shlomi Fish
+
+=over 4
+
+=item *
+
+Adam Lesperance <lespea@gmail.com>
+
+=item *
+
+Shlomi Fish <shlomif@shlomifish.org>
+
+=back
+
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Apocalypse.
+This software is copyright (c) 2014 by Apocalypse.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-The full text of the license can be found in the LICENSE file included with this distribution.
+The full text of the license can be found in the
+F<LICENSE> file included with this distribution.
+
+=head1 DISCLAIMER OF WARRANTY
+
+THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
 
 =cut
-
